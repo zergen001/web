@@ -37,12 +37,6 @@ function setLanguage(language) {
   for (const button of document.querySelectorAll("[data-language]")) {
     button.setAttribute("aria-pressed", String(button.dataset.language === language));
   }
-  const date = document.querySelector("[data-policy-date]");
-  if (date) {
-    date.dateTime = supportSite[date.dataset.policyDate];
-    date.textContent = new Intl.DateTimeFormat(language, {dateStyle: "long", timeZone: "UTC"})
-      .format(new Date(date.dateTime + "T00:00:00Z"));
-  }
   const contact = document.querySelector("[data-contact]");
   if (!contact) return;
   const email = supportSite.supportEmail.trim();
@@ -57,11 +51,14 @@ function setLanguage(language) {
     : "App name:\nApp version:\nmacOS version:\n\nProblem or suggestion:\n";
   contact.querySelector("[data-compose]").href = "mailto:" + email
     + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-  const address = contact.querySelector("[data-email]");
-  address.textContent = email;
-  address.href = "mailto:" + email;
 }
 
+for (const address of document.querySelectorAll("[data-email]")) {
+  const email = supportSite.supportEmail.trim();
+  address.hidden = !email;
+  address.textContent = email;
+  if (email) address.href = "mailto:" + email;
+}
 for (const brand of document.querySelectorAll("[data-brand]")) {
   brand.textContent = supportSite.developerName;
 }
