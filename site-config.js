@@ -1,7 +1,6 @@
-// 发布前填写收件邮箱及适用应用。
 const supportSite = {
   developerName: "Zergen",
-  supportEmail: "",
+  supportEmail: "zergen001@163.com",
   privacyUpdated: "2026-11-25",
   termsUpdated: "2026-11-25",
 

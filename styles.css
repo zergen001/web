@@ -18,11 +18,10 @@ a:hover { color: var(--link); }
 :focus-visible { outline: 3px solid #106dd0; outline-offset: 4px; }
 .wrap { width: min(1100px, calc(100% - 88px)); margin-inline: auto; }
 .bar { border-bottom: 1px solid var(--line); }
-.header-inner, .brand, nav, .languages, .footer, .footer div, .contact { display: flex; align-items: center; }
+.header-inner, nav, .languages, .footer, .footer div, .contact { display: flex; align-items: center; }
 .header-inner { min-height: 76px; gap: 32px; }
 .brand, nav a, .footer a, .action { text-decoration: none; }
-.brand { gap: 10px; font-weight: 740; font-size: 21px; letter-spacing: -.04em; margin-right: auto; overflow-wrap: anywhere; }
-.mark { display: grid; place-items: center; flex: 0 0 28px; height: 28px; border-radius: 8px; background: var(--ink); color: white; font: 600 22px/1 system-ui; }
+.brand { flex: none; font-weight: 740; font-size: 21px; letter-spacing: -.04em; margin-right: auto; white-space: nowrap; }
 nav { gap: 24px; }
 nav a, .footer { color: var(--muted); font-size: 14px; }
 nav a[aria-current="page"] { color: var(--ink); font-weight: 650; text-decoration: underline; text-underline-offset: 7px; }
